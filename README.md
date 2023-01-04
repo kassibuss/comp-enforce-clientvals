@@ -1,7 +1,7 @@
 # sourcemod-nt-comp-enforce-clientvals
 SourceMod plugin for competitive Neotokyo.
 
-This plugin enforces certain client cvars for competitive play, as described in more detail below.
+This plugin enforces certain client cvars for competitive play, as described <a href="#list-of-enforced-values-and-reasons">in more detail below</a>.
 
 Clients whose cvars violate these rules are kicked from the server, because they must be manually reverted by the player to take effect.
 
