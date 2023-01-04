@@ -24,3 +24,9 @@ This is how the shadow should look like, with its angle tied to the map's sun an
 Custom values will render an always front-facing, blob-shaped shadow, which can reveal enemies behind corners in ways that normally aren't possible.
 
 ![r_shadowrendertotexture_0](https://user-images.githubusercontent.com/6595066/210471026-9ea1f4af-51c0-4e54-931e-7edbcde7f4f2.jpg)
+
+## Building
+
+### Requirements
+
+* SourceMod 1.7 or newer
