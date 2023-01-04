@@ -16,7 +16,7 @@ public Plugin myinfo = {
 
 // Names of the cvars, followed by the value that is enforced for them.
 char g_enforcedVals[][][] = {
-    { "r_shadowrendertotexture", "1" },  // Non-default values give possibly unfair forward-facing blob-shaped shadows.
+    { "r_shadowrendertotexture", "1" },  // Player cvar to monitor, followed by the value it must hold.
 };
 
 public void OnPluginStart()
