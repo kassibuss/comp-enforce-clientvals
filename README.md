@@ -3,7 +3,7 @@ SourceMod plugin for competitive Neotokyo.
 
 This plugin enforces certain client cvars for competitive play, as described in more detail below.
 
-Clients whose cvars violate these rules are kicked from the server, because they must be manually reverted by the player to take effect. All of the rules enforce default Neotokyo values, so anyone who gets kicked should (hopefully) also have the knowledge on how to revert these changes they've made.
+Clients whose cvars violate these rules are kicked from the server, because they must be manually reverted by the player to take effect. All of the rules enforced by this plugin are default Neotokyo values, so anyone who gets kicked should (hopefully) also have the knowledge on how to revert these changes they've made.
 
 ## List of enforced values, and reasons
 
