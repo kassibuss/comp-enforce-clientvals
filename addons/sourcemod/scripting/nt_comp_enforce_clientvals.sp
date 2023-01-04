@@ -45,14 +45,14 @@ public Action Timer_CheckEnforcedVals(Handle timer)
     return Plugin_Continue;
 }
 
-public void OnCvarQueryFinished(QueryCookie cookie, int client, ConVarQueryResult result, const char[] cvarName, const char[] cvarValue, int index)
+public void OnCvarQueryFinished(QueryCookie cookie, int client, ConVarQueryResult result, const char[] cvarName, const char[] cvarValue, int enforcedCvarIndex)
 {
     if (result != ConVarQuery_Okay)
     {
         return;
     }
 
-    if (!StrEqual(cvarValue, g_enforcedVals[index][1], false))
+    if (!StrEqual(cvarValue, g_enforcedVals[enforcedCvarIndex][1], false))
     {
         // Notify the server of why the player's getting kicked, and how to fix it.
         PrintToConsoleAll(
@@ -61,7 +61,7 @@ public void OnCvarQueryFinished(QueryCookie cookie, int client, ConVarQueryResul
             client,
             cvarName,
             cvarValue,
-            g_enforcedVals[index][1]
+            g_enforcedVals[enforcedCvarIndex][1]
         );
 
         // Kick & instruct the kickee to make the required change,
@@ -72,7 +72,7 @@ public void OnCvarQueryFinished(QueryCookie cookie, int client, ConVarQueryResul
             g_sPluginTag,
             cvarName,
             cvarValue,
-            g_enforcedVals[index][1]
+            g_enforcedVals[enforcedCvarIndex][1]
         );
     }
 }
