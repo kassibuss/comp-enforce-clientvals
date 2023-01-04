@@ -4,13 +4,15 @@
 #pragma semicolon 1
 #pragma newdecls required
 
+#define PLUGIN_VERSION "0.1.1"
+
 char g_sPluginTag[] = "[COMP CVARS]";
 
 public Plugin myinfo = {
     name        = "NT Enforce Comp Values",
     author      = "Rain",
     description = "Enforce some client cvar values for competitive play.",
-    version     = "0.1.0",
+    version     = PLUGIN_VERSION,
     url         = "https://github.com/Rainyan/sourcemod-nt-comp-enforce-clientvals"
 };
 
@@ -37,7 +39,13 @@ public Action Timer_CheckEnforcedVals(Handle timer)
         {
             if (QueryClientConVar(client, g_enforcedVals[i][0], OnCvarQueryFinished, i) == QUERYCOOKIE_FAILED)
             {
-                LogError("QueryClientConVar %s for client %d (%N) failed", g_enforcedVals[i][0], client, client);
+                // Only log once, so we don't spam the error log
+                static bool have_logged_error = false;
+                if (!have_logged_error)
+                {
+                    LogError("QueryClientConVar %s for client %d (%N) failed", g_enforcedVals[i][0], client, client);
+                    have_logged_error = true;
+                }
             }
         }
     }
