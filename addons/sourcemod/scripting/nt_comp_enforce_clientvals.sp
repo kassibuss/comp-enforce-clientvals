@@ -47,7 +47,7 @@ public Action Timer_CheckEnforcedVals(Handle timer)
 
 public void OnCvarQueryFinished(QueryCookie cookie, int client, ConVarQueryResult result, const char[] cvarName, const char[] cvarValue, int index)
 {
-    if (result != ConVarQuery_Okay || !IsClientInGame(client))
+    if (result != ConVarQuery_Okay)
     {
         return;
     }
