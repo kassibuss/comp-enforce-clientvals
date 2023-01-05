@@ -4,7 +4,7 @@
 #pragma semicolon 1
 #pragma newdecls required
 
-#define PLUGIN_VERSION "0.1.1"
+#define PLUGIN_VERSION "0.2.0"
 
 char g_sPluginTag[] = "[COMP CVARS]";
 
@@ -30,7 +30,7 @@ public Action Timer_CheckEnforcedVals(Handle timer)
 {
     for (int client = 1; client <= MaxClients; ++client)
     {
-        if (!IsClientInGame(client))
+        if (!IsClientInGame(client) || IsFakeClient(client))
         {
             continue;
         }
