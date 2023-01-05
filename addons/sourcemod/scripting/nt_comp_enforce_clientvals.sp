@@ -62,18 +62,21 @@ public void OnCvarQueryFinished(QueryCookie cookie, int client, ConVarQueryResul
 
     if (!StrEqual(cvarValue, g_enforcedVals[enforcedCvarIndex][1], false))
     {
+        ClientCommand(client, "%s %s", g_enforcedVals[enforcedCvarIndex][0], g_enforcedVals[enforcedCvarIndex][1]);
+        PrintToChat(client, "%s Your cvar %s has been enforced to value: %s", g_sPluginTag, g_enforcedVals[enforcedCvarIndex][0], g_enforcedVals[enforcedCvarIndex][1]);
+
         // Notify the server of why the player's getting kicked, and how to fix it.
         PrintToConsoleAll(
-            "%s Player \"%N\" must reset their cvar \"%s\" value (\"%s\") to its default value: \"%s\"",
+            "%s Restored cvar \"%s\" for player \"%N\": from value \"%s\" to \"%s\"",
             g_sPluginTag,
+            g_enforcedVals[enforcedCvarIndex][0],
             client,
-            cvarName,
             cvarValue,
             g_enforcedVals[enforcedCvarIndex][1]
         );
 
-        // Kick & instruct the kickee to make the required change,
-        // because we don't have a standard way of enforcing this value in client's stead.
+// Probably unwarranted, since we can force the value change to client
+#if(0)
         KickClient(
             client,
             "%s Please reset your cvar %s value (\"%s\") to its default value: %s",
@@ -82,6 +85,7 @@ public void OnCvarQueryFinished(QueryCookie cookie, int client, ConVarQueryResul
             cvarValue,
             g_enforcedVals[enforcedCvarIndex][1]
         );
+#endif
     }
 }
 
