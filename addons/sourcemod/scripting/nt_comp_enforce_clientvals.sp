@@ -65,7 +65,6 @@ public void OnCvarQueryFinished(QueryCookie cookie, int client, ConVarQueryResul
         ClientCommand(client, "%s %s", g_enforcedVals[enforcedCvarIndex][0], g_enforcedVals[enforcedCvarIndex][1]);
         PrintToChat(client, "%s Your cvar %s has been enforced to value: %s", g_sPluginTag, g_enforcedVals[enforcedCvarIndex][0], g_enforcedVals[enforcedCvarIndex][1]);
 
-        // Notify the server of why the player's getting kicked, and how to fix it.
         PrintToConsoleAll(
             "%s Restored cvar \"%s\" for player \"%N\": from value \"%s\" to \"%s\"",
             g_sPluginTag,
